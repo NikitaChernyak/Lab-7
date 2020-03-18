@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+@SuppressWarnings("serial")
 public class PrivateDialogFrame extends JFrame {
 
 	private static final int FROM_FIELD_DEFAULT_COLUMNS = 10;

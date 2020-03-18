@@ -52,7 +52,7 @@ public class InstantMessenger {
 			out.writeUTF(user.getName());
 			out.writeUTF("true");
 			socket.close();
-			frame.getTextAreaIn().append("Я -> " + user.getAddres()
+			frame.getTextAreaIn().append("Я -> (" + user.getAddres() + "): "
 					+ message + "\n");
 			frame.getTextAreaOut().setText("");
 		} catch (UnknownHostException e) {
@@ -100,7 +100,7 @@ public class InstantMessenger {
 			out.writeUTF(temp.getName());
 			out.writeUTF("false");
 			socket.close();
-			frame.getTextAreaIncoming().append("Я -> " + temp.getAddres() + message + "\n");
+			frame.getTextAreaIncoming().append("Я -> (" + temp.getAddres() + "): " + message + "\n");
 			frame.getTextAreaOutgoing().setText("");
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
@@ -123,8 +123,7 @@ public class InstantMessenger {
 					final ServerSocket serverSocket = new ServerSocket(frame.getServerPort());
 					while (!Thread.interrupted()) {
 						final Socket socket = serverSocket.accept();
-						final DataInputStream in = new DataInputStream(
-								socket.getInputStream());
+						final DataInputStream in = new DataInputStream(socket.getInputStream());
 						final String senderName = in.readUTF();
 						final String message = in.readUTF();
 						final String name = in.readUTF();
@@ -143,9 +142,7 @@ public class InstantMessenger {
 						}
 					} catch (IOException e) {
 						e.printStackTrace();
-						JOptionPane.showMessageDialog(frame,
-								"Ошибка в работе сервера", "Ошибка",
-								JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(frame, "Ошибка в работе сервера", "Ошибка", JOptionPane.ERROR_MESSAGE);
 					}
 				}
 		}).start();
