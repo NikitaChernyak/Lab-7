@@ -17,15 +17,12 @@ import javax.swing.JTextArea;
 @SuppressWarnings("serial")
 public class PrivateDialogFrame extends JFrame {
 
-	private static final int FROM_FIELD_DEFAULT_COLUMNS = 10;
-	private static final int TO_FIELD_DEFAULT_COLUMNS = 20;
+	
 	private static final int INCOMING_AREA_DEFAULT_ROWS = 10;
 	private static final int OUTGOING_AREA_DEFAULT_ROWS = 5;
-	private static final int SMALL_GAP = 5;
 	private static final int MEDIUM_GAP = 10;
-	private static final int LARGE_GAP = 15;
-	private static final int WIDTH = 250;
-	private static final int HEIGHT = 400;
+	private static final int WIDTH = 400;
+	private static final int HEIGHT = 500;
 	private InstantMessenger messenger;
 	private final JTextArea textAreaIn;
 	private final JTextArea textAreaOut;
@@ -41,7 +38,7 @@ public class PrivateDialogFrame extends JFrame {
 	public PrivateDialogFrame(final User user, MainFrame frame){
 		
 		messenger = frame.getMessenger();
-		setTitle("Беседа с " + user.getName());
+		setTitle("Р‘РµСЃРµРґР° СЃ " + user.getName());
 		setMinimumSize(new Dimension(WIDTH, HEIGHT));
 		
 		final Toolkit kit = Toolkit.getDefaultToolkit();
@@ -55,8 +52,8 @@ public class PrivateDialogFrame extends JFrame {
 		final JScrollPane scrollPaneOutgoing = new JScrollPane(textAreaOut);
 		
 		final JPanel messagePanel = new JPanel();
-		messagePanel.setBorder(BorderFactory.createTitledBorder("Сообщение"));
-		final JButton sendButton = new JButton("Отправить");
+		messagePanel.setBorder(BorderFactory.createTitledBorder("РЎРѕРѕР±С‰РµРЅРёРµ"));
+		final JButton sendButton = new JButton("РћС‚РїСЂР°РІРёС‚СЊ");
 		sendButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				messenger.sendMessage(user, textAreaOut.getText(), PrivateDialogFrame.this);

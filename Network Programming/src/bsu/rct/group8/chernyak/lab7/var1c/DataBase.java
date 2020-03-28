@@ -33,16 +33,6 @@ public class DataBase {
 		}
 	}
 	
-	public void saveData(){
-		try {
-		BufferedWriter writer = new BufferedWriter(new FileWriter("DataBase.txt"));
-		writer.close();
-		} catch(IOException ex) {
-			System.out.println("File not found");
-			ex.printStackTrace();
-		}
-	}
-	
 	public User getUser(String findName) {
 		for (User user: users){
 			if (findName.equals(user.getName())){
